@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'namespace/style.css' %}">
+  </head>
+  <body>
+    <div style="margin-bottom:2cm">
+      <h1 id="header">청소년부 조별 점수판</h1>
+    </div>
+    <main>
+      {% for q in team%}
+      <div id="scoreboard" class="1jo">
+          <span>
+            <div id="name">
+              <h2>{{q.team.teamName}}</h2>
+            </div>
+            <span id="score">{{q.score}}</span>
+          </span>
+      </div>
+      <!-- <div id="scoreboard" class="2jo">
+          <span>
+            <div id="name">
+              <h2>{{q.team.teamName}}</h2>
+            </div>
+            <span id="score">{{q.score}}</span>
+          </span>
+      </div>
+      <div id="scoreboard" class="3jo">
+          <span>
+            <div id="name">
+              <h2>{{q.team.teamName}}</h2>
+            </div>
+            <span id="score">{{q.score}}</span>
+          </span>
+      </div>
+      <div id="scoreboard" class="4jo">
+          <span>
+            <div id="name">
+              <h2>{{q.team.teamName}}</h2>
+            </div>
+            <span id="score">{{q.score}}</span>
+          </span>
+      </div>
+      <div id="scoreboard" class="5jo">
+          <span>
+            <div id="name">
+              <h2>{{q.team.teamName}}</h2>
+            </div>
+            <span id="score">{{q.score}}</span>
+          </span>
+      </div>
+      <div id="scoreboard" class="6jo">
+          <span>
+            <div id="name">
+              <h2>{{q.team.teamName}}</h2>
+            </div>
+            <span id="score">{{q.score}}</span>
+          </span>
+      </div> -->
+      {%endfor%}
+    </main>
+    <script src="src/script.js"></script>
+  </body>
+</html>
