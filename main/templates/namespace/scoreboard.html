@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>동사교 점수판</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
@@ -12,56 +13,17 @@
     </div>
     <main>
       {% for q in team%}
-      <div id="scoreboard" class="1jo">
+      <div id="scoreboard" class="">
           <span>
             <div id="name">
-              <h2>{{q.team.teamName}}</h2>
+              <span class="responsive-text", style="font-weight: bold;">{{q.team.teamName}}</span>
             </div>
             <span id="score">{{q.score}}</span>
           </span>
       </div>
-      <!-- <div id="scoreboard" class="2jo">
-          <span>
-            <div id="name">
-              <h2>{{q.team.teamName}}</h2>
-            </div>
-            <span id="score">{{q.score}}</span>
-          </span>
-      </div>
-      <div id="scoreboard" class="3jo">
-          <span>
-            <div id="name">
-              <h2>{{q.team.teamName}}</h2>
-            </div>
-            <span id="score">{{q.score}}</span>
-          </span>
-      </div>
-      <div id="scoreboard" class="4jo">
-          <span>
-            <div id="name">
-              <h2>{{q.team.teamName}}</h2>
-            </div>
-            <span id="score">{{q.score}}</span>
-          </span>
-      </div>
-      <div id="scoreboard" class="5jo">
-          <span>
-            <div id="name">
-              <h2>{{q.team.teamName}}</h2>
-            </div>
-            <span id="score">{{q.score}}</span>
-          </span>
-      </div>
-      <div id="scoreboard" class="6jo">
-          <span>
-            <div id="name">
-              <h2>{{q.team.teamName}}</h2>
-            </div>
-            <span id="score">{{q.score}}</span>
-          </span>
-      </div> -->
+      
       {%endfor%}
     </main>
-    <script src="src/script.js"></script>
+    <script src="{% static 'namespace\scoreboard.js' %}"></script>
   </body>
 </html>
