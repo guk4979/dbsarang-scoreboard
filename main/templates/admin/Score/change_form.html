@@ -61,10 +61,17 @@
 
 {% block after_related_objects %}{% endblock %}
 
-{% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+{% block submit_buttons_bottom %}
+{% submit_row %}
+  {{ block.super }}
+  <!-- <div class="extra-buttons">
+    <input type="button" value="10 추가" class="btn btn-primary" onclick="addTen({{original.id}})">
+  </div> -->
+  {% endblock %}
 
-{% block admin_change_form_document_ready %}
-    <script id="django-admin-form-add-constants"
+  
+  {% block admin_change_form_document_ready %}
+  <script id="django-admin-form-add-constants"
             src="{% static 'admin/js/change_form.js' %}"
             {% if adminform and add %}
                 data-model-name="{{ opts.model_name }}"
@@ -73,9 +80,19 @@
     </script>
 {% endblock %}
 
+
 {# JavaScript for prepopulated fields #}
 {% prepopulated_fields_js %}
 
 </div>
-</form></div>
+</form>
+</div>
+{% if original.id != None %}
+<form action="{% url 'add_num' original.id %}" method="POST">
+  {% csrf_token %}
+  <label for="numberInput">추가할 숫자:</label>
+  <input type="number" name="number" value=0 >
+  <input type="submit" value="더하기">
+</form>
+{% endif %}
 {% endblock %}
