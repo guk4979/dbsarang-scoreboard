@@ -11,10 +11,12 @@
     <div style="margin-bottom:2cm">
       <h1 id="header">청소년부 조별 점수판</h1>
     </div>
-    <button id="toggleButton">Toggle Display</button>
+    <div style="align-items: center;">
+      <button id="toggleButton">레크레이션 점수판</button>
+    </div>
     <main>
       {% for q in team%}
-      <div id="scoreboard" class="whole" style="display: none;">
+      <div id="scoreboard" class="whole" style="display: '';">
           <span>
             <div id="name">
               <span class="responsive-text", style="font-weight: bold;">{{q.team.teamName}}</span>
@@ -26,7 +28,7 @@
       {%endfor%}
 
       {% for r in recreation%}
-      <div id="scoreboard" class="recreation" style="display: '';">
+      <div id="scoreboard" class="recreation" style="display: none;">
           <span>
             <div id="name">
               <span class="responsive-text", style="font-weight: bold;">{{r.team.teamName}}</span>
@@ -36,6 +38,24 @@
       </div>
       
       {%endfor%}
+
+    <script>
+
+      var socket = new WebSocket('ws://' + window.location.host + '/ws/');
+
+      socket.onmessage = function(e) {
+          var data = JSON.parse(e.data);
+          var score = data.score;
+          var team = data.team;
+
+          // UI 업데이트 로직
+          location.reload(true)
+      };
+
+      socket.onclose = function(e) {
+          console.error('WebSocket closed unexpectedly');
+      };
+    </script>
 
       
     </main>

@@ -20,3 +20,11 @@ def add_num(request, pk):
     context = {'score': instance}
     return redirect('admin:index')
     
+@csrf_exempt
+def add_gamenum(request, pk):
+    instance = GameScore.objects.get(pk=pk)
+    instance.score += int(request.POST.get('number', 0))
+    instance.save()
+    context = {'score': instance}
+    return redirect('admin:index')
+
