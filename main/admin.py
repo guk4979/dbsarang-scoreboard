@@ -13,7 +13,7 @@ class ScoreAdmin(admin.ModelAdmin):
     list_display = ('team','score')
 admin.site.register(Score, ScoreAdmin)
 class GameScoreAdmin(admin.ModelAdmin):
-    change_form_template = 'admin/Score/change_form.html'
+    change_form_template = 'admin/GameScore/change_form.html'
     list_display = ('team','score')
 
 admin.site.register(GameScore, GameScoreAdmin)
