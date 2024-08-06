@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.style.display = 'none';
             });
 
-            toggleButton.textContent = '전체 점수';
+            toggleButton.textContent = '레크레이션 점수';
 
         } else {
             // 'whole' 요소들을 표시하고 'recreation' 요소들을 숨기기
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.style.display = 'block';
             });
 
-            toggleButton.textContent = '레크레이션 점수';
+            toggleButton.textContent = '전체 점수';
 
         }
     }
